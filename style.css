@@ -1,0 +1,224 @@
+/* Reset styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  /* Body style */
+  body {
+    font-family: 'Georgia', serif;
+    color: #6b3e2e;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    background-image: url('bg.gif'); /* Replace with your GIF URL */
+    background-size: cover; /* Ensures the GIF covers the whole screen */
+    background-position: center; /* Centers the GIF */
+    background-attachment: fixed; /* Keeps the GIF fixed while scrolling */
+    overflow: hidden;
+    padding: 10px;
+  }
+  
+  /* Window frame style */
+  .window {
+    width: 90%;  /* Use percentage width for responsiveness */
+    max-width: 300px;  /* Set a maximum width for larger screens */
+    height: 200px;
+    background-image: url(1.jpg);
+    background-size: cover; /* Ensures the image covers the whole element */
+    background-position: center; /* Centers the background image */
+    border: 5px solid #ecc3df;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    overflow: hidden;
+    opacity: 1;  /* Initially, the window is visible */
+    transition: opacity 1s ease-out; /* Adds fade-out effect */
+  }
+  
+  /* Curtain effect */
+  .curtain {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url(env.png);
+    background-size: 500px 500px;
+    background-position: center;
+    transform: translateY(0);
+    transition: transform 1s ease-out;
+  }
+  
+  /* Button style */
+  .open-button {
+    background-color: #ffffff;
+    color: #2a9d8f;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    z-index: 1;
+    width: 80%;  /* Button size adapts to mobile width */
+    max-width: 200px;  /* Maximum width for larger screens */
+  }
+  
+  .open-button:hover {
+    background-color: #f4f4f4;
+  }
+  
+  /* Hidden letter content */
+  .container {
+    display: none;
+    background: #fff7f3;
+    padding: 2rem;
+    max-width: 600px;
+    border-radius: 10px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    animation: fadeIn 1s ease-in-out;
+  }
+  
+  /* Fade-in effect for the letter content */
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+  
+  /* Heading and subtitle styles */
+  h1 {
+    font-family: 'Brush Script MT', cursive;
+    font-size: 2.5rem;
+    color: #e63946;
+    margin-bottom: 0.5rem;
+  }
+  
+  .intro {
+    font-size: 1.2rem;
+    color: #9d3b33;
+    margin-bottom: 1.5rem;
+  }
+  
+  /* Paragraph and signature styles */
+  p {
+    line-height: 1.6;
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+  }
+  
+  .signature {
+    font-family: 'Brush Script MT', cursive;
+    font-size: 1.5rem;
+    color: #e63946;
+  }
+  
+  /* Media Queries for Mobile and Small Screens */
+  @media (max-width: 600px) {
+    /* Adjustments for small screen devices */
+    .window {
+      width: 70%;  /* Make the window take up the full width */
+      height: 100%;  /* Adjust height to fit content */
+      max-width: none;
+      border-radius: 10px;
+    }
+  
+    .open-button {
+      width: 40%;  /* Full width button on small screens */
+      padding: 15px;  /* Larger button padding for easier click */
+      font-size: 1.2rem;  /* Larger text for button */
+    }
+  
+    .container {
+      width: 90%;  /* Make the letter container responsive */
+      max-width: 90%;  /* Avoid large content on small screens */
+      padding: 1.5rem;  /* Adjust padding */
+    }
+  
+    h1 {
+      font-size: 2rem;  /* Smaller heading for mobile */
+    }
+  
+    .intro {
+      font-size: 1rem;  /* Adjust intro text size */
+    }
+  
+    p {
+      font-size: 1rem;  /* Adjust paragraph size */
+    }
+  
+    .signature {
+      font-size: 1.2rem;  /* Adjust signature size */
+    }
+  }
+  
+  @media (max-width: 400px) {
+    /* Further adjustments for very small screens (e.g., phones) */
+    .open-button {
+      padding: 12px;  /* Slightly smaller padding */
+      font-size: 1rem;  /* Adjust font size */
+    }
+  
+    .container {
+      padding: 1rem;  /* Smaller padding for smaller screens */
+    }
+  }
+
+/* Floating Circle Styles */
+.floating-circles-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 100;
+  }
+  
+  .floating-circle {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Georgia', serif;
+    font-size: 12px;
+    color: #6b3e2e;
+    opacity: 0;
+    animation: float 5s ease-in-out forwards;
+    cursor: pointer;
+    overflow: hidden; /* Ensures text stays inside the circle */
+    text-align: center;
+  }
+  
+  .floating-circle p {
+    margin: 0;
+    font-size: 10px; /* Adjust font size to ensure it fits within the circle */
+    line-height: 1.2;
+    word-wrap: break-word; /* Ensures long words wrap inside the circle */
+    padding: 5px; /* Adds a little padding to prevent text from touching the edges */
+  }
+  
+  @keyframes float {
+    0% {
+      transform: translate(0, 0) scale(1);
+      opacity: 1;
+    }
+    50% {
+      transform: translate(-50px, -50px) scale(1.5);
+      opacity: 0.8;
+    }
+    100% {
+      transform: translate(100px, -150px) scale(0.8);
+      opacity: 0;
+    }
+  }
+  
